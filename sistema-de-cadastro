@@ -1,0 +1,46 @@
+pessoas = []
+
+while True:
+    print("\n=== SISTEMA DE CADASTRO ===")
+    print("1 - Cadastrar pessoa")
+    print("2 - Listar pessoas")
+    print("3 - Buscar pessoa")
+    print("4 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Digite o nome: ")
+        idade = input("Digite a idade: ")
+
+        pessoa = {
+            "nome": nome,
+            "idade": idade
+            }
+        
+        pessoas.append(pessoa)
+        print("Pessoa cadastrada com sucesso!")
+
+    elif opcao == "2":
+        print("\nLista de pessoas:")
+        for p in pessoas:
+            print(f"Nome: {p['nome']} | Idade: {p['idade']}")
+
+    elif opcao == "3":
+        busca = input("Digite o nome para buscar: ")
+        encontrada = False
+
+        for p in pessoas:
+            if p["nome"] == busca:
+                print(f"Encontrado: {p}")
+                encontrada = True
+
+        if not encontrada:
+            print("Pessoa não encontrada.")
+
+    elif opcao == "4":
+        print("Saindo do sistema...")
+        break
+
+    else:
+        print("Opção inválida.")
